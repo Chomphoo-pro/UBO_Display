@@ -69,6 +69,7 @@
     <div class="site-section">
       <div class="container">
         <div class="row mb-5">
+        <div class="col-md-12" data-aos="fade-up">
           <div id="contenu">
             <?php
 
