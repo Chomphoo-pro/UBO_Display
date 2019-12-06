@@ -125,10 +125,10 @@
 
 
 				//Affiche info
-				echo 	"<font size='100'>".
+				echo 	"<font size='100' data-aos='fade-up' data-aos-delay='100'>".
 							$result["INFO_TEXTE"].
 						"</font>".
-						"<br><font size='5'>Ecrit par ".$result["CMPT_PSEUDO"]." le ".$result["INFO_DATE_AJOUT"]."</font>";
+						"<br><font size='5' data-aos='fade-up' data-aos-delay='300' >Ecrit par <font color='#c70039' > ".$result["CMPT_PSEUDO"]."</font> le ".$result["INFO_DATE_AJOUT"]."</font>";
 						
 
 
