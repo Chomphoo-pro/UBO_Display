@@ -24,12 +24,12 @@
 	<div class="site-section">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6" data-aos="fade-up">
+				<div class="col-md-12" data-aos="fade-up">
 					<form action="session_action.php" method="post">
 						<fieldset>
 							<div class="form-group">
 
-								<div class="input-group mb-3">
+								<div class="input-group mb-3 text-center">
 
 									<input name="pseudo" type="text" class="form-control" placeholder="saisire votre pseudo" aria-describedby="basic-addon1">
 
@@ -37,7 +37,7 @@
 
 
 
-								<div class="input-group mb-3">
+								<div class="input-group mb-3 text-center">
 
 									<input name="mdp" type="password" class="form-control" placeholder="saisire votre mot de passe" aria-describedby="basic-addon1">
 
