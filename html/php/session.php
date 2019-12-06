@@ -30,7 +30,7 @@
 				<nav class="site-navigation position-relative text-right" role="navigation">
 				<ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
 					<li><a href="../index.php">Home</a></li>
-					<li><a href="affichageCategorie.php?indice=0">Catégorie</a></li>
+					<li><a href="affichageCategorie.php">Catégorie</a></li>
 					<li><a href="inscription.php">Inscription</a></li>
 					<li><a href="session.php">Connection</a></li>
 					<li class="cta"><a href="../buy-tickets.html">achat tiquets</a></li>

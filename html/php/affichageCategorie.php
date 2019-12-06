@@ -24,7 +24,7 @@
 		<?php 
 			$id[] = NULL;
 			//Si l'attribut session n'es pas créer
-			if (!isset($_SESSION)){
+			if (!isset($_SESSION['indice'])){
 				$_SESSION['indice'] = 0; //On l'instancie avec 0;
 			}
 			
