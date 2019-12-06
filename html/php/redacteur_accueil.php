@@ -1,46 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Redacteur accueil</title>
-    <!-- Verifier que la session est redacteur -->
-    <?php 
-      
-      session_start();
 
-      if (
-        !isset($_SESSION['statut']) && 
-        !isset($_SESSION['login']) ){
-        //Redirection
-        header("Location:session.php");
-      } 
+<head>
+  <title>Redacteur accueil</title>
+  <!-- Verifier que la session est redacteur -->
+  <?php
 
-      if (strcmp($_SESSION['statut'], 'R') != 0){
-        //Redirection
-        header("Location:session.php");
-      }
+  session_start();
+
+  if (
+    !isset($_SESSION['statut']) &&
+    !isset($_SESSION['login'])
+  ) {
+    //Redirection
+    header("Location:session.php");
+  }
+
+  if (strcmp($_SESSION['statut'], 'R') != 0) {
+    //Redirection
+    header("Location:session.php");
+  }
 
 
 
 
-    ?>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  ?>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-    <link rel="stylesheet" href="../fonts/icomoon/style.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/magnific-popup.css">
-    <link rel="stylesheet" href="../css/jquery-ui.css">
-    <link rel="stylesheet" href="../css/owl.carousel.min.css">
-    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="../css/aos.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <link rel="stylesheet" href="../fonts/icomoon/style.css">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/magnific-popup.css">
+  <link rel="stylesheet" href="../css/jquery-ui.css">
+  <link rel="stylesheet" href="../css/owl.carousel.min.css">
+  <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="../css/aos.css">
 
-    <link rel="stylesheet" href="../css/style.css">
-  </head>
-  <body>
-  
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
   <div class="site-wrap">
 
     <div class="site-mobile-menu">
@@ -51,7 +54,7 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-    
+
     <header class="site-navbar py-3" role="banner">
       <div class="container-fluid">
         <div class="row align-items-center">
@@ -61,16 +64,15 @@
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                  <li><a href="../index.php">Home</a></li>
-                  <li><a href="affichageCategorie.php?indice=0">Catégorie</a></li>
-                  <li><a href="inscription.php">Inscription</a></li>
-                  <li><a href="session.php">Connection</a></li>
-                  <li class="cta"><a href="../buy-tickets.html">achat tiquets</a></li>
-                </ul>
+                <li><a href="../index.php">Home</a></li>
+                <li><a href="affichageCategorie.php?indice=0">Catégorie</a></li>
+                <li><a href="inscription.php">Inscription</a></li>
+                <li><a href="session.php">Connection</a></li>
+                <li class="cta"><a href="../buy-tickets.html">achat tiquets</a></li>
+              </ul>
             </nav>
           </div>
           <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
-          </div>
         </div>
       </div>
     </header>
@@ -81,72 +83,65 @@
           <div class="col-md-10">
             <span class="d-block mb-3 caption" data-aos="fade-up">Accueil</span>
             <h1 class="d-block mb-4" data-aos="fade-up" data-aos-delay="100">Bienvenue rédacteur</h1>
-            <?php 
-                    $mysqli = new mysqli('localhost','zle_beuch','w3hsyumy','zfl2-zle_beuch');
+            <?php
+            $mysqli = new mysqli('localhost', 'zle_beuch', 'w3hsyumy', 'zfl2-zle_beuch');
 
-                    if ($mysqli->connect_errno)
-                    {
-                      // Affichage d'un message d'erreur
-                      echo "Error: Problème de connexion à la BDD \n";
-                      echo "Errno: " . $mysqli->connect_errno . "\n";
-                      echo "Error: " . $mysqli->connect_error . "\n";
-                      // Arrêt du chargement de la page
-                      exit();
-                    }
-                    // Instructions PHP à ajouter pour l'encodage utf8 du jeu de caractères
-                    if (!$mysqli->set_charset("utf8")) {
-                      printf("Pb de chargement du jeu de car. utf8 : %s\n", $mysqli->error);
-                      exit();
-                    }
+            if ($mysqli->connect_errno) {
+              // Affichage d'un message d'erreur
+              echo "Error: Problème de connexion à la BDD \n";
+              echo "Errno: " . $mysqli->connect_errno . "\n";
+              echo "Error: " . $mysqli->connect_error . "\n";
+              // Arrêt du chargement de la page
+              exit();
+            }
+            // Instructions PHP à ajouter pour l'encodage utf8 du jeu de caractères
+            if (!$mysqli->set_charset("utf8")) {
+              printf("Pb de chargement du jeu de car. utf8 : %s\n", $mysqli->error);
+              exit();
+            }
 
-                    echo ("Connexion BDD réussie !</br>");
+            echo ("Connexion BDD réussie !</br>");
 
 
-                  $sql = "SELECT * FROM profil ";
-                  echo($sql);
-                  /* 1bis) A NOTER : on préparera plutôt une requête avec une jointure pour
+            $sql = "SELECT * FROM profil ";
+            echo ($sql);
+            /* 1bis) A NOTER : on préparera plutôt une requête avec une jointure pour
                   rechercher si un compte utilisateur valide (‘A’) existe dans la table des
                   données des profils et récupérer aussi son statut à partir du pseudo / mot de
                   passe saisis */
 
-                  /* Exécution de la requête pour vérifier si le compte (=pseudo+mdp) existe !*/
-                  $resultat = $mysqli->query($sql);
-                  $query = $resultat->fetch_assoc();
+            /* Exécution de la requête pour vérifier si le compte (=pseudo+mdp) existe !*/
+            $resultat = $mysqli->query($sql);
+            $query = $resultat->fetch_assoc();
 
-                  echo "pseudo: ".$query['CMPT_PSEUDO']."<br>".
-                        "mail: ".$query['PROF_MAIL']."<br>".
-                        "nom: ".$query['PROF_NOM']."<br>".
-                        "prenom: ".$query['PROF_PRENOM']."<br>";
+            echo "pseudo: " . $query['CMPT_PSEUDO'] . "<br>" .
+              "mail: " . $query['PROF_MAIL'] . "<br>" .
+              "nom: " . $query['PROF_NOM'] . "<br>" .
+              "prenom: " . $query['PROF_PRENOM'] . "<br>";
 
 
-  ?>
+            ?>
           </div>
         </div>
       </div>
     </div>
-
-    
-
-    
-      
-    <footer class="site-footer">
-      
-        <div class="row">
-          
-            <div class="col-md-12 text-center">
-              <div class="border-top pt-5">
-              <p>
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-primary" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    
   </div>
+
+
+
+
+  <footer class="site-footer">
+    <div class="col-md-12 text-center">
+      <p>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        Copyright &copy; <script>
+          document.write(new Date().getFullYear());
+        </script> All rights reserved | This template is made with <i class="icon-heart text-primary" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+      </p>
+    </div>
+
+  </footer>
 
   <script src="../js/jquery-3.3.1.min.js"></script>
   <script src="../js/jquery-migrate-3.0.1.min.js"></script>
@@ -161,6 +156,7 @@
   <script src="../js/aos.js"></script>
 
   <script src="../js/main.js"></script>
-    
-  </body>
+
+</body>
+
 </html>
