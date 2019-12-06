@@ -1,132 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <title>Redacteur accueil</title>
-  <!-- Verifier que la session est gestionnaire -->
-  <?php
+  <head>
+    <title>Redacteur accueil</title>
+    <!-- Verifier que la session est gestionnaire -->
+    <?php
 
-  session_start();
+    session_start();
 
-  if (
-    !isset($_SESSION['statut']) &&
-    !isset($_SESSION['login'])
-  ) {
-    //Redirection
-    header("Location:session.php");
-  }
+    if (
+      !isset($_SESSION['statut']) &&
+      !isset($_SESSION['login'])
+    ) {
+      //Redirection
+      header("Location:session.php");
+    }
 
-  if (strcmp($_SESSION['statut'], 'G') != 0) {
-    //Redirection
-    header("Location:session.php");
-  }
-
-
+    if (strcmp($_SESSION['statut'], 'G') != 0) {
+      //Redirection
+      header("Location:session.php");
+    }
 
 
-  ?>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-  <link rel="stylesheet" href="../fonts/icomoon/style.css">
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/magnific-popup.css">
-  <link rel="stylesheet" href="../css/jquery-ui.css">
-  <link rel="stylesheet" href="../css/owl.carousel.min.css">
-  <link rel="stylesheet" href="../css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
-  <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
-  <link rel="stylesheet" href="../css/aos.css">
-
-  <link rel="stylesheet" href="../css/style.css">
-</head>
-
-<body>
-
-  <div class="site-wrap">
-
-    <div class="site-mobile-menu">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close mt-3">
-          <span class="icon-close2 js-menu-toggle"></span>
-        </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
-    </div>
-
-    <header class="site-navbar py-3" role="banner">
-      <div class="container-fluid">
-        <div class="row align-items-center">
-          <div class="col-11 col-xl-2">
-            <h1 class="mb-0"><a href="../index.php" class="text-white h2 mb-0">LES<span class="text-primary">BOUEES</span> </a></h1>
-          </div>
-          <div class="col-12 col-md-10 d-none d-xl-block">
-            <nav class="site-navigation position-relative text-right" role="navigation">
-              <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                <li><a href="../index.php">Home</a></li>
-                <li><a href="affichageCategorie.php?indice=0">Catégorie</a></li>
-                <li><a href="inscription.php">Inscription</a></li>
-                <li><a href="session.php">Connection</a></li>
-                <li class="cta"><a href="../buy-tickets.html">achat tiquets</a></li>
-              </ul>
-            </nav>
-          </div>
-          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
-        </div>
-      </div>
-    </header>
-
-    <div class="site-section site-hero inner">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-10">
-            <span class="d-block mb-3 caption" data-aos="fade-up">Accueil</span>
-            <h1 class="d-block mb-4" data-aos="fade-up" data-aos-delay="100">Bienvenue gestionnaire</h1>
-            <?php
-            $mysqli = new mysqli('localhost', 'zle_beuch', 'w3hsyumy', 'zfl2-zle_beuch');
-
-            if ($mysqli->connect_errno) {
-              // Affichage d'un message d'erreur
-              echo "Error: Problème de connexion à la BDD \n";
-              echo "Errno: " . $mysqli->connect_errno . "\n";
-              echo "Error: " . $mysqli->connect_error . "\n";
-              // Arrêt du chargement de la page
-              exit();
-            }
-            // Instructions PHP à ajouter pour l'encodage utf8 du jeu de caractères
-            if (!$mysqli->set_charset("utf8")) {
-              printf("Pb de chargement du jeu de car. utf8 : %s\n", $mysqli->error);
-              exit();
-            }
-
-            
-            echo ("Connexion BDD réussie !</br>");
 
 
-            $sql = "SELECT * FROM profil ";
-            echo ($sql);
-            /* 1bis) A NOTER : on préparera plutôt une requête avec une jointure pour
-                  rechercher si un compte utilisateur valide (‘A’) existe dans la table des
-                  données des profils et récupérer aussi son statut à partir du pseudo / mot de
-                  passe saisis */
+    ?>
 
-            /* Exécution de la requête pour vérifier si le compte (=pseudo+mdp) existe !*/
-            $resultat = $mysqli->query($sql);
-            $query = $resultat->fetch_assoc();
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="../fonts/icomoon/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/magnific-popup.css">
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <link rel="stylesheet" href="../css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="../css/aos.css">
+    <link rel="stylesheet" href="../css/style.css">
 
-            echo "pseudo: " . $query['CMPT_PSEUDO'] . "<br>" .
-              "mail: " . $query['PROF_MAIL'] . "<br>" .
-              "nom: " . $query['PROF_NOM'] . "<br>" .
-              "prenom: " . $query['PROF_PRENOM'] . "<br>";
+  </head>
 
+  <body>
 
-            ?>
+    <div class="site-wrap">
+
+      <div class="site-mobile-menu">
+        <div class="site-mobile-menu-header">
+          <div class="site-mobile-menu-close mt-3">
+            <span class="icon-close2 js-menu-toggle"></span>
           </div>
         </div>
+        <div class="site-mobile-menu-body"></div>
       </div>
-    </div>
-    <div>
+
+      <header class="site-navbar py-3" role="banner">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-11 col-xl-2">
+              <h1 class="mb-0"><a href="../index.php" class="text-white h2 mb-0">LES<span class="text-primary">BOUEES</span> </a></h1>
+            </div>
+            <div class="col-12 col-md-10 d-none d-xl-block">
+              <nav class="site-navigation position-relative text-right" role="navigation">
+                <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                  <li><a href="../index.php">Home</a></li>
+                  <li><a href="affichageCategorie.php?indice=0">Catégorie</a></li>
+                  <li><a href="inscription.php">Inscription</a></li>
+                  <li><a href="deconnection.php">Deconnection</a></li>
+                  <li class="cta"><a href="../buy-tickets.html">achat tiquets</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+          </div>
+        </div>
+      </header>
+
+      <div class="site-section site-hero inner">
+        <div class="container">
+          <div class="row mb-5">
+            <div class="col-md-12" data-aos="fade-up">
+              <span class="d-block mb-3 caption" data-aos="fade-up">Accueil</span>
+              <h1 class="d-block mb-4" data-aos="fade-up" data-aos-delay="100">Bienvenue rédacteur</h1>
+              <?php
+              $mysqli = new mysqli('localhost', 'zle_beuch', 'w3hsyumy', 'zfl2-zle_beuch');
+
+              if ($mysqli->connect_errno) {
+                // Affichage d'un message d'erreur
+                echo "Error: Problème de connexion à la BDD \n";
+                echo "Errno: " . $mysqli->connect_errno . "\n";
+                echo "Error: " . $mysqli->connect_error . "\n";
+                // Arrêt du chargement de la page
+                exit();
+              }
+              // Instructions PHP à ajouter pour l'encodage utf8 du jeu de caractères
+              if (!$mysqli->set_charset("utf8")) {
+                printf("Pb de chargement du jeu de car. utf8 : %s\n", $mysqli->error);
+                exit();
+              }
+
+
+              //Message connection réussie
+              /*echo ("Connexion BDD réussie !</br>");*/
+
+
+              $sql = "SELECT * FROM profil ";
+
+              /*echo ($sql);*/
+
+
+
+              /* 1bis) A NOTER : on préparera plutôt une requête avec une jointure pour
+                        rechercher si un compte utilisateur valide (‘A’) existe dans la table des
+                        données des profils et récupérer aussi son statut à partir du pseudo / mot de
+                        passe saisis */
+
+              /* Exécution de la requête pour vérifier si le compte (=pseudo+mdp) existe !*/
+              $resultat = $mysqli->query($sql);
+              $query = $resultat->fetch_assoc();
+
+              echo "pseudo: " . $query['CMPT_PSEUDO'] . "<br>" .
+                "mail: " . $query['PROF_MAIL'] . "<br>" .
+                "nom: " . $query['PROF_NOM'] . "<br>" .
+                "prenom: " . $query['PROF_PRENOM'] . "<br>";
+
+
+              ?>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
 
 
@@ -155,9 +160,8 @@
       <script src="../js/jquery.magnific-popup.min.js"></script>
       <script src="../js/bootstrap-datepicker.min.js"></script>
       <script src="../js/aos.js"></script>
-
       <script src="../js/main.js"></script>
 
-</body>
+  </body>
 
 </html>
