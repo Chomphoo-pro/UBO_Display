@@ -23,11 +23,11 @@
 			<div class="site-section">
 				<div class="container">
 					<?php
+					//Ouverture d'une session
+					session_start();
+
 					$id[] = NULL;
-					//Si l'attribut session n'es pas créer
-					if (!isset($_SESSION['indice'])) {
-						$_SESSION['indice'] = 0; //On l'instancie avec 0;
-					}
+					
 
 					//Affiche l'indice de la file de la catégorie
 					//echo ("catégorie: " . $_SESSION['indice'] . "<br>"); //Affiche de la catégorie
@@ -96,7 +96,7 @@
 						//Si le nombre de lignes est positif
 						if ($nbrLignes > 0) {
 
-							//On enregistre dans un tableau
+							//On enregistre dans $id[] les numéro des cat
 							for ($i = 0; $i < $nbrLignes; $i++) {
 								$cat = $result->fetch_assoc();
 								$id[$i] = $cat['CAT_NUMERO'];
@@ -104,15 +104,19 @@
 						} else { //Sinon afficher un message d'erreur
 
 							echo "Aucune information ...";
+							exit();
+
 						}
 
 
-						//Recuperer indice dans url
-						$indice = $_SESSION['indice'];
-
+						//Si l'attribut session n'es pas créer
+						if (!isset($_SESSION['indice'])) {
+							$_SESSION['indice'] = 0; //On l'instancie avec 0;
+						} 
+						
 
 						//chercher mod indice tableau
-						$indiceMod = $indice % $nbrLignes;
+						$indiceMod = $_SESSION['indice'] % $nbrLignes;
 
 
 						//Requete récupération informations
@@ -160,7 +164,6 @@
 							$_SESSION['indice'] = $indiceMod;
 						}
 
-						$mysqli->close();
 
 						//Affraichire la page dans 5 sec 
 						header("refresh:5;url=affichageCategorie.php");
