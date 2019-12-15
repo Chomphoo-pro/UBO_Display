@@ -16,7 +16,7 @@
       header("Location:session.php");
     }
 
-    if (strcmp($_SESSION['statut'], 'R') != 0) {
+    if (strcmp($_SESSION['statut'], 'G') != 0) {
       //Redirection
       header("Location:session.php");
     }
@@ -82,7 +82,7 @@
           <div class="row align-items-center">
             <div class="col-md-10">
               <span class="d-block mb-3 caption" data-aos="fade-up">Acceuil</span>
-              <h1 class="d-block mb-4" data-aos="fade-up" data-aos-delay="100">Bienvenue rédacteur</h1>
+              <h1 class="d-block mb-4" data-aos="fade-up" data-aos-delay="100">Bienvenue géstionnaire</h1>
             </div>
           </div>
         </div>
@@ -133,8 +133,10 @@
               
             <?php
                 $sql = "SELECT * FROM profil WHERE CMPT_PSEUDO ='".$_SESSION['login']."' 
-                                              AND PROF_STATUT = '".$_SESSION['statut']."' 
-                                              AND PROF_VALIDITE = 'A'";
+                AND PROF_STATUT = '".$_SESSION['statut']."' 
+                AND PROF_VALIDITE = 'A'";
+
+
                 //Affichage SQL
                 //echo ($sql);
 
