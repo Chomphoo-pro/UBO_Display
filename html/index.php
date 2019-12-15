@@ -85,12 +85,14 @@
               echo "<font size='3' color='red'> Error: Problème de connexion au serveur distant <br></font>";
 
               // Arrêt du chargement de la page
+              //exit() fait bugais la page
               exit();
             }
 
             // Instructions PHP à ajouter pour l'encodage utf8 du jeu de caractères
             if (!$mysqli->set_charset("utf8")) {
-              printf("Erreur lors du chargement du jeu de caractères utf8 : %s<br>", $mysqli->error);
+              printf("<font size='3' color='red'>Erreur: lors du chargement du jeu de caractères utf8 : %s<br></font>", $mysqli->error);
+              //exit() fait bugais la page
               exit();
             } /*else {
                 printf("Jeu de caractères courant : %s\n", $mysqli->character_set_name());
