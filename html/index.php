@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Workshop &mdash; Colorlib Website Template</title>
+  <title>Festival des bouées</title>
   <?php session_start(); ?>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -76,7 +76,7 @@
       <div class="container">
         <div class="row mb-5">
           <?php
-         
+
 
             $mysqli = new mysqli('localhost', 'zle_beuch', 'w3hsyumy', 'zfl2-zle_beuch');
 
@@ -93,66 +93,60 @@
               printf("Erreur lors du chargement du jeu de caractères utf8 : %s<br>", $mysqli->error);
               exit();
             } /*else {
-              printf("Jeu de caractères courant : %s\n", $mysqli->character_set_name());
-            }
-            */
-
-            
-            //echo ("Connexion BDD réussie !</br>");
-          ?>
-          
-              <?php
-
-
-
-
-              
-
-              //Préparation de la requête récupérant tous les profils
-              $requete = "SELECT * FROM actualite WHERE ACT_ETAT = 'L';";
-
-              //Affichage SQL
-              /*echo ($requete);*/
-
-              //Affichage de la requête préparé
-              $result = $mysqli->query($requete);
-              if ($result == false) //Erreur lors de l’exécution de la requête
-              { // La requête a echoué
-                echo "<font size='3' color='red'> Error: requête echoué <br></font>";
-
-                /*
-                echo "Error: La requête a échoué  \n";
-                echo "Query: " . $sql . "\n";
-                echo "Errno: " . $mysqli->errno . "\n";
-                echo "Error: " . $mysqli->error . "\n";
-                */
-                
-                //exit() fait bugais la page
-                /*exit();*/
-              } else { //La requête s’est bien exécutée
-
-                //echo "<font size='3' color='green'> Error: requête réussie ! <br></font>";
-
-                while ($actualite = $result->fetch_assoc()) {
-                  echo '<div class="col-md-12" data-aos="fade-up">
-                          <div id="contenu">';
-                  echo ('<h2 class="mb-4"><a href="#">' . $actualite['ACT_TITRE'] . '</a></h2>'
-                    . '<br> actualité: ' . $actualite['ACT_TEXTE']
-                    . '<br> date: ' . $actualite['ACT_DATE_DE_PUBLICATION']
-                    . '<br> pseudo: ' . $actualite['CMPT_PSEUDO']
-                    . '<br><br><br><br><br><br><br>');
-                  echo "<br />";
-                  echo    '</div>
-                        </div>';
-                }
+                printf("Jeu de caractères courant : %s\n", $mysqli->character_set_name());
               }
+              */
+
+
+            //echo ("Connexion BDD réussie !</br>");
+
+
+            //Préparation de la requête récupérant tous les profils
+            $requete = "SELECT * FROM actualite WHERE ACT_ETAT = 'L';";
+
+            //Affichage SQL
+            /*echo ($requete);*/
+
+            //Envoyer la requête
+            $result = $mysqli->query($requete);
+
+            if ($result == false) //Erreur lors de l’exécution de la requête
+            { // La requête a echoué
+              echo "<font size='3' color='red'> Error: requête echoué <br></font>";
+
+              /*
+                  echo "Error: La requête a échoué  \n";
+                  echo "Query: " . $sql . "\n";
+                  echo "Errno: " . $mysqli->errno . "\n";
+                  echo "Error: " . $mysqli->error . "\n";
+                  */
+
+              //exit() fait bugais la page
+              /*exit();*/
+            } else { //La requête s’est bien exécutée
+
+              //echo "<font size='3' color='green'> Error: requête réussie ! <br></font>";
+
+              while ($actualite = $result->fetch_assoc()) {
+                echo '<div class="col-md-12" data-aos="fade-up">
+                            <div id="contenu">';
+                echo ('<h2 class="mb-4"><a href="#">' . $actualite['ACT_TITRE'] . '</a></h2>'
+                  . '<br> actualité: ' . $actualite['ACT_TEXTE']
+                  . '<br> date: ' . $actualite['ACT_DATE_DE_PUBLICATION']
+                  . '<br> pseudo: ' . $actualite['CMPT_PSEUDO']
+                  . '<br><br><br><br><br><br><br>');
+                echo "<br />";
+                echo    '</div>
+                          </div>';
+              }
+            }
 
 
 
-              //Ferme la connexion avec la base MariaDB
-              $mysqli->close();
+            //Ferme la connexion avec la base MariaDB
+            $mysqli->close();
 
-              ?>
+          ?>
 
 
         </div>
