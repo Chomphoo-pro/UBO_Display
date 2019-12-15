@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <title>Festival des bouées</title>
     <meta charset="utf-8">
@@ -18,40 +19,41 @@
 
     <link rel="stylesheet" href="../css/style.css">
   </head>
-  <body>
-  
-  <div class="site-wrap">
 
-    <div class="site-mobile-menu">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close mt-3">
-          <span class="icon-close2 js-menu-toggle"></span>
+  <body>
+
+    <div class="site-wrap">
+
+      <div class="site-mobile-menu">
+        <div class="site-mobile-menu-header">
+          <div class="site-mobile-menu-close mt-3">
+            <span class="icon-close2 js-menu-toggle"></span>
+          </div>
         </div>
+        <div class="site-mobile-menu-body"></div>
       </div>
-      <div class="site-mobile-menu-body"></div>
+
+      <header class="site-navbar py-3" role="banner">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-11 col-xl-2">
+              <h1 class="mb-0"><a href="../index.php" class="text-white h2 mb-0">LES<span class="text-primary">BOUEES</span> </a></h1>
+            </div>
+            <div class="col-12 col-md-10 d-none d-xl-block">
+              <nav class="site-navigation position-relative text-right" role="navigation">
+                <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                  <li><a href="../index.php">Home</a></li>
+                  <li><a href="affichageCategorie.php?indice=0">Catégorie</a></li>
+                  <li><a href="inscription.php">Inscription</a></li>
+                  <li><a href="session.php">Connection</a></li>
+                  <li class="cta"><a href="../buy-tickets.html">achat tiquets</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+          </div>
+        </div>
     </div>
-    
-    <header class="site-navbar py-3" role="banner">
-      <div class="container-fluid">
-        <div class="row align-items-center">
-          <div class="col-11 col-xl-2">
-            <h1 class="mb-0"><a href="../index.php" class="text-white h2 mb-0">LES<span class="text-primary">BOUEES</span> </a></h1>
-          </div>
-          <div class="col-12 col-md-10 d-none d-xl-block">
-            <nav class="site-navigation position-relative text-right" role="navigation">
-              <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                <li><a href="../index.php">Home</a></li>
-                <li><a href="affichageCategorie.php?indice=0">Catégorie</a></li>
-                <li><a href="inscription.php">Inscription</a></li>
-                <li><a href="session.php">Connection</a></li>
-                <li class="cta"><a href="../buy-tickets.html">achat tiquets</a></li>
-              </ul>
-            </nav>
-          </div>
-          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
-          </div>
-        </div>
-      </div>
     </header>
 
     <div class="site-section site-hero inner">
@@ -64,7 +66,7 @@
         </div>
       </div>
     </div>
-    
+
 
 
 
@@ -72,65 +74,64 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6" data-aos="fade-up">
-          <form action="redacteur_cat_info_action.php" method="post">
-          <div class="form-group">
-          
-              <div class="input-group mb-3">
-              
-                <input name="cat_num" type="text" class="form-control" placeholder="numero de la catégorie" aria-describedby="basic-addon1">
-              
+            <form action="redacteur_cat_info_action.php" method="post">
+              <div class="form-group">
+
+                <div class="input-group mb-3">
+
+                  <input name="cat_num" type="text" class="form-control" placeholder="numero de la catégorie" aria-describedby="basic-addon1">
+
+                </div>
+
+
+                <div class="input-group mb-3">
+                  <textarea class="form-control" name="info_text" placeholder="information"></textarea>
+                </div>
+
+
+                <p><input class="btn btn-primary" type="submit" value="Ajouter"></p>
               </div>
-
-
-              <div class="input-group mb-3">
-                <textarea class="form-control" name="info_text" placeholder="information"></textarea>
-              </div>
-
-
-                    <p><input class="btn btn-primary" type="submit" value="Ajouter"></p>
-                    </div>
             </form>
           </div>
         </div>
       </div>
     </div>
-    
 
-    
-    
-      
+
+
+
+
     <footer class="site-footer">
-      
-        <div class="row">
-          
-            <div class="col-md-12 text-center">
-              <div class="border-top pt-5">
-              <p>
+
+      <div class="row">
+
+        <div class="col-md-12 text-center">
+          <div class="border-top pt-5">
+            <p>
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-primary" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+              Copyright &copy; <script>
+                document.write(new Date().getFullYear());
+              </script> All rights reserved | This template is made with <i class="icon-heart text-primary" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              </p>
-            </div>
+            </p>
           </div>
         </div>
       </div>
     </footer>
-    
-  </div>
 
-  <script src="../js/jquery-3.3.1.min.js"></script>
-  <script src="../js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="../js/jquery-ui.js"></script>
-  <script src="../js/popper.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/owl.carousel.min.js"></script>
-  <script src="../js/jquery.stellar.min.js"></script>
-  <script src="../js/jquery.countdown.min.js"></script>
-  <script src="../js/jquery.magnific-popup.min.js"></script>
-  <script src="../js/bootstrap-datepicker.min.js"></script>
-  <script src="../js/aos.js"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/jquery.stellar.min.js"></script>
+    <script src="../js/jquery.countdown.min.js"></script>
+    <script src="../js/jquery.magnific-popup.min.js"></script>
+    <script src="../js/bootstrap-datepicker.min.js"></script>
+    <script src="../js/aos.js"></script>
+    <script src="../js/main.js"></script>
 
-  <script src="../js/main.js"></script>
-    
   </body>
+
 </html>

@@ -82,7 +82,7 @@
           <div class="row mb-5">
             <div class="col-md-12" data-aos="fade-up">
               <span class="d-block mb-3 caption" data-aos="fade-up">Accueil</span>
-              <h1 class="d-block mb-4" data-aos="fade-up" data-aos-delay="100">Bienvenue rédacteur</h1>
+              <h1 class="d-block mb-4" data-aos="fade-up" data-aos-delay="100">Bienvenue gestionnaire</h1>
               <?php
               $mysqli = new mysqli('localhost', 'zle_beuch', 'w3hsyumy', 'zfl2-zle_beuch');
 
@@ -131,7 +131,7 @@
           </div>
         </div>
       </div>
-
+    </div>
 
 
 
