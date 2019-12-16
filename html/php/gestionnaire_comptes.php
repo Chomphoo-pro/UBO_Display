@@ -62,11 +62,11 @@
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                <li><a href="">Accueil & mon profil</a></li>
+                <li><a href="gestionnaire_accueil.php">Accueil & mon profil</a></li>
                 <li><a href="gestionnaire_comptes.php">Comptes</a></li>
-                <li><a href="">Actualités</a></li>
-                <li><a href="">Catégories / informations</a></li>
-                <li><a href="">URL</a></li>
+                <li><a href="404.php">Actualités</a></li>
+                <li><a href="404.php">Catégories / informations</a></li>
+                <li><a href="404.php">URL</a></li>
                 <?php
                 if (isset($_SESSION['login'])) {
                   echo "<li><a href='deconnection.php'>Déconnection</a></li>";
@@ -216,22 +216,22 @@
 
             </div>
             <div class="row align-items-end">
-             
-                <fieldset class="col-md-6" data-aos="fade-up">
-                  <input placeholder="entrez le pseudo" name="pseudo" type="text" class="mb-2 form-control" >
 
-                  <select name="validite" class="form-control btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <option value="A">A</option>
-                    <option value="D">D</option>
-                  </select>
+              <fieldset class="col-md-6" data-aos="fade-up">
+                <input placeholder="entrez le pseudo" name="pseudo" type="text" class="mb-2 form-control">
 
-                </fieldset>
+                <select name="validite" class="form-control btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <option value="A">A</option>
+                  <option value="D">D</option>
+                </select>
 
-                <input class="btn btn-primary" type="submit" value="Valider">
-             
+              </fieldset>
+
+              <input class="btn btn-primary" type="submit" value="Valider">
 
 
-              
+
+
 
             </div>
           </div>
