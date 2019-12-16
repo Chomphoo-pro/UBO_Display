@@ -126,15 +126,49 @@
     <div class="site-section">
       <div class="container">
         <div class="row mb-5">
- 
-          <div class="row" data-aos="fade-up" data-aos-delay="400">
 
-            <div>categorie1</div>
-            <h2 class="col"><a href="#">Design your open source strategy</a></h2>
+           <?php
+            
+            $sql = "SELECT * 
+            FROM categorie
+            LEFT OUTER JOIN information using(CAT_NUMERO)
+            where INFO_ETAT = 'L'";
 
-            <p class="col">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus error deleniti dolores necessitatibus eligendi. Nesciunt repellendus ab voluptatibus.
-            </p><span class="col"><a href="#">By Emely Peters</a></span>
-          </div>
+            //echo($sql);
+
+            $resultat = $mysqli->query($sql);
+
+            if ($resultat == false) {
+              // La requête a echoué
+              echo "<font size='3' color='red'> Error: Affichage d'informations <br></font>";
+              /*
+              echo "Error: La requête a échoué  \n";
+              echo "Query: " . $sql . "\n";
+              echo "Errno: " . $mysqli->errno . "\n";
+              echo "Error: " . $mysqli->error . "\n";
+              */
+
+              //exit() fait bugais la page
+              exit();
+            } else {
+              $numRows = $resultat->num_rows;
+
+              //Verifier s'il y'a des infos
+              if ($numRows > 0) { // Afficher tout
+                while ($information = $resultat->fetch_assoc()) {
+                  echo '<div class="row mb-5" data-aos="fade-up" data-aos-delay="400">';
+                  echo '
+                    <h2 class="col"><a href="#">'.$information['CAT_INTITULE'].'</a></h2>
+                    <p class="col">'.$information['INFO_TEXTE'].'</p>
+                    <span class="col"><a href="#">'.$information['CMPT_PSEUDO'].'</a></span>';
+                    echo '</div>';
+                }
+              } else { //Afficher indisponible
+                echo "<font size='3' color='red'> Aucune informations disponibles ...<br></font>";
+              }
+            }
+            ?>
+
 
 
         </div>
