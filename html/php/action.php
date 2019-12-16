@@ -78,75 +78,74 @@
 
             <?php
 
-              $id = addslashes(htmlspecialchars($_POST['pseudo']));
-              $mdp = addslashes(htmlspecialchars($_POST['mdp']));
-              $mdp_confirme = addslashes(htmlspecialchars($_POST['mdp_confirme']));
-              $nom = addslashes(htmlspecialchars($_POST['nom']));
-              $prenom = addslashes(htmlspecialchars($_POST['prenom']));
-              $mail = addslashes(htmlspecialchars($_POST['mail']));
+            $id = addslashes(htmlspecialchars($_POST['pseudo']));
+            $mdp = addslashes(htmlspecialchars($_POST['mdp']));
+            $mdp_confirme = addslashes(htmlspecialchars($_POST['mdp_confirme']));
+            $nom = addslashes(htmlspecialchars($_POST['nom']));
+            $prenom = addslashes(htmlspecialchars($_POST['prenom']));
+            $mail = addslashes(htmlspecialchars($_POST['mail']));
 
-              $mysqli = new mysqli('localhost', 'zle_beuch', 'w3hsyumy', 'zfl2-zle_beuch');
+            $mysqli = new mysqli('localhost', 'zle_beuch', 'w3hsyumy', 'zfl2-zle_beuch');
 
 
-              if ($mysqli->connect_errno) {
-                // Affichage d'un message d'erreur
-                echo "<font size='3' color='red'> Error: Problème de connexion au serveur distant <br></font>";
+            if ($mysqli->connect_errno) {
+              // Affichage d'un message d'erreur
+              echo "<font size='3' color='red'> Error: Problème de connexion au serveur distant <br></font>";
 
-                // Arrêt du chargement de la page
-                //exit() fait bugais la page
-                exit();
-              }
+              // Arrêt du chargement de la page
+              //exit() fait bugais la page
+              exit();
+            }
 
-              // Instructions PHP à ajouter pour l'encodage utf8 du jeu de caractères
-              if (!$mysqli->set_charset("utf8")) {
-                printf("<font size='3' color='red'>Erreur: lors du chargement du jeu de caractères utf8 : %s<br></font>", $mysqli->error);
-                //exit() fait bugais la page
-                exit();
-              } /*else {
+            // Instructions PHP à ajouter pour l'encodage utf8 du jeu de caractères
+            if (!$mysqli->set_charset("utf8")) {
+              printf("<font size='3' color='red'>Erreur: lors du chargement du jeu de caractères utf8 : %s<br></font>", $mysqli->error);
+              //exit() fait bugais la page
+              exit();
+            } /*else {
                 printf("Jeu de caractères courant : %s\n", $mysqli->character_set_name());
               }
               */
-              //echo ("Connexion BDD réussie !</br>");
+            //echo ("Connexion BDD réussie !</br>");
 
-              if (
-                $_POST['pseudo'] &&
-                $_POST['mdp'] &&
-                $_POST['mdp_confirme'] &&
-                $_POST['nom'] &&
-                $_POST['prenom'] &&
-                $_POST['mail']
-              ) {
-                
+            if (
+              $_POST['pseudo'] &&
+              $_POST['mdp'] &&
+              $_POST['mdp_confirme'] &&
+              $_POST['nom'] &&
+              $_POST['prenom'] &&
+              $_POST['mail']
+            ) {
 
-                //Si le mot de passe correspond
-                if (strcmp($_POST['mdp'], $_POST['mdp_confirme']) == 0) {
-                  
 
-                  $sql = "INSERT INTO compte VALUES('$id',md5('$mdp'));";
+              //Si le mot de passe correspond
+              if (strcmp($_POST['mdp'], $_POST['mdp_confirme']) == 0) {
 
-                  //Affichage SQL
-                  //echo ($sql);
 
-                  $result2 = $mysqli->query($sql);
+                $sql = "INSERT INTO compte VALUES('$id',md5('$mdp'));";
 
-                  if ($result2 == false) //Erreur lors de l’exécution de la requête
-                  {
+                //Affichage SQL
+                //echo ($sql);
 
-                    // La requête a echoué
-                    echo "<font size='3' color='red'> Error: inscription echoué <br></font>";
-                    /*
-                    echo "Error: La requête a échoué  \n";
-                    echo "Query: " . $sql . "\n";
-                    echo "Errno: " . $mysqli->errno . "\n";
-                    echo "Error: " . $mysqli->error . "\n";
-                    */
-                    echo "<a href='inscription.php'>Formulaire d'inscription</a>";
-                    exit();
+                $result2 = $mysqli->query($sql);
 
-                  } /*else { //Requête réussie
-                    //echo "<font size='3' color='green'> Error: requête réussie ! <br></font>";
-                  }
-                  */
+                if ($result2 == false) //Erreur lors de l’exécution de la requête
+                {
+
+                  // La requête a echoué
+                  echo "<font size='3' color='red'> Error: inscription echoué <br></font>";
+                  /*
+                      echo "Error: La requête a échoué  \n";
+                      echo "Query: " . $sql . "\n";
+                      echo "Errno: " . $mysqli->errno . "\n";
+                      echo "Error: " . $mysqli->error . "\n";
+                      */
+                  echo "<a href='inscription.php'>Formulaire d'inscription</a>";
+                  exit();
+                } else { //Requête réussie
+                  //echo "<font size='3' color='green'> requête réussie ! <br></font>";
+
+
 
 
                   //requête
@@ -165,13 +164,13 @@
                     echo "<font size='3' color='red'> Error: création de profil <br></font>";
 
                     /*
-                    echo "Error: La requête a échoué  \n";
-                    echo "Query: " . $sql . "\n";
-                    echo "Errno: " . $mysqli->errno . "\n";
-                    echo "Error: " . $mysqli->error . "\n";
-                    */
+                        echo "Error: La requête a échoué  \n";
+                        echo "Query: " . $sql . "\n";
+                        echo "Errno: " . $mysqli->errno . "\n";
+                        echo "Error: " . $mysqli->error . "\n";
+                        */
 
-                    
+
                     //supprimer compte
                     $sql = "DELETE FROM compte WHERE CMPT_PSEUDO = '$id';";
 
@@ -180,39 +179,40 @@
 
                     $result4 = $mysqli->query($sql);
 
-                    if ($result4 == false){ //Erreur lors de l’exécution de la requête
-                      echo "<font size='3' color='red'> Error: création compte <br></font>";
+                    if ($result4 == false) { //Erreur lors de l’exécution de la requête
+                      echo "<font size='3' color='red'> Error: supression compte <br></font>";
                       /*
-                      echo "Error: La requête a échoué  \n";
-                      echo "Query: " . $sql . "\n";
-                      echo "Errno: " . $mysqli->errno . "\n";
-                      echo "Error: " . $mysqli->error . "\n";
-                      */
+                          echo "Error: La requête a échoué  \n";
+                          echo "Query: " . $sql . "\n";
+                          echo "Errno: " . $mysqli->errno . "\n";
+                          echo "Error: " . $mysqli->error . "\n";
+                          */
                       exit();
                     } else/* { //Requête réussie
-                      //echo "<font size='3' color='green'> Error: requête réussie ! <br></font>";
-                    }
-                    */
+                          //echo "<font size='3' color='green'> supression réussie ! <br></font>";
+                        }
+                        */
 
 
-                  echo "<a href='inscription.php'>Formulaire d'inscription</a>";
-                  exit();
+                      echo "<a href='inscription.php'>Formulaire d'inscription</a>";
+                    exit();
                   } else { //Requête réussi
                     echo "<font size='3' color='green'> Création du profil réussie ! <br></font>";
                   }
-                  
+                } //Fin else creation compte
 
-                } else {
-                  echo "<font size='3' color='red'>Tout les mot de passe ne correspond pas<br></font>";
-                  echo "<a href='inscription.php'>Formulaire d'inscription</a>";
-                }
+
               } else {
-                echo "<font size='3' color='red'>Tout les champs ne sont pas rempli<br></font>";
+                echo "<font size='3' color='red'>Tout les mot de passe ne correspond pas<br></font>";
                 echo "<a href='inscription.php'>Formulaire d'inscription</a>";
               }
+            } else {
+              echo "<font size='3' color='red'>Tout les champs ne sont pas rempli<br></font>";
+              echo "<a href='inscription.php'>Formulaire d'inscription</a>";
+            }
 
-              //Ferme la connexion avec la base MariaDB
-              $mysqli->close();
+            //Ferme la connexion avec la base MariaDB
+            $mysqli->close();
             ?>
 
 

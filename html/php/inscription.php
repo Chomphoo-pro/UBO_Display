@@ -80,33 +80,33 @@
               <div class="form-group">
           
                 <div class="input-group mb-3">
-                  <input name="pseudo" type="text" class="form-control" placeholder="pseudo" aria-describedby="basic-addon1">
+                  <input required="required" name="pseudo" type="text" class="form-control" placeholder="pseudo" aria-describedby="basic-addon1">
                 </div>
 
 
                 <div class="input-group mb-3">
-                  <input name="mdp" type="password" class="form-control" placeholder="mot de passe" aria-describedby="basic-addon1">
+                  <input required="required" name="mdp" type="password" class="form-control" placeholder="mot de passe" aria-describedby="basic-addon1">
                 </div>
 
 
                 <div class="input-group mb-3">
-                  <input name="mdp_confirme" type="password" class="form-control" placeholder="confirmer mot de passe" aria-describedby="basic-addon1">  
+                  <input required="required" name="mdp_confirme" type="password" class="form-control" placeholder="confirmer mot de passe" aria-describedby="basic-addon1">  
                 </div>
 
 
                 <div class="input-group mb-3"> 
-                  <input name="nom" type="text" class="form-control" placeholder="nom" aria-describedby="basic-addon1">
+                  <input required="required" name="nom" type="text" class="form-control" placeholder="nom" aria-describedby="basic-addon1">
                 </div>
 
 
 
                 <div class="input-group mb-3">
-                    <input  name="prenom" type="text" class="form-control" placeholder="prenom" aria-describedby="basic-addon1">
+                    <input required="required" name="prenom" type="text" class="form-control" placeholder="prenom" aria-describedby="basic-addon1">
                 </div>
 
 
                 <div class="input-group mb-3">
-                    <input name="mail" type="text" class="form-control" placeholder="mail" aria-describedby="basic-addon1">
+                    <input required="required" name="mail" type="email" class="form-control" placeholder="mail" aria-describedby="basic-addon1">
                 </div>
 
                     <!-- <p>pseudo :</p>
