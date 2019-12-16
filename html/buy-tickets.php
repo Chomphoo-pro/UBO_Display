@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Workshop &mdash; Colorlib Website Template</title>
+    <title>Festival des bouées</title>
+    <?php session_start(); ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -40,11 +41,16 @@
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="php/affichageCategorie.php">Catégorie</a></li>
-                <li><a href="php/inscription.php">Inscription</a></li>
-                <li><a href="php/connection.php">Connection</a></li>
-                <li class="cta"><a href="buy-tickets.html">achat tiquets</a></li>
+                  <li><a href="index.php">Home</a></li>
+                  <li><a href="php/affichageCategorie.php">Catégorie</a></li>
+                  <li><a href="php/inscription.php">Inscription</a></li>
+                  <?php if (isset($_SESSION['login'])) {
+                    echo "<li><a href='php/deconnection.php'>Déconnection</a></li>";
+                  } else {
+                    echo "<li><a href='php/session.php'>Connection</a></li>";
+                  } ?>
+  
+                  <li class="cta"><a href="buy-tickets.php">achat tiquets</a></li>
               </ul>
             </nav>
           </div>

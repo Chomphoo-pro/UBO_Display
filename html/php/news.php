@@ -3,6 +3,7 @@
 
 <head>
   <title>Festival des bouées</title>
+  <?php session_start(); ?>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -45,10 +46,15 @@
                 <li><a href="../index.php">Home</a></li>
                 <li><a href="affichageCategorie.php">Catégorie</a></li>
                 <li><a href="inscription.php">Inscription</a></li>
-                <li><a href="session.php">Connection</a></li>
+                <?php 
 
-
-                <li class="cta"><a href="buy-tickets.html">achat tiquets</a></li>
+                    if (isset($_SESSION['login'])) {
+                      echo "<li><a href='deconnection.php'>Déconnection</a></li>";
+                    } else {
+                      echo "<li><a href='session.php'>Connection</a></li>";
+                    } 
+						    ?>
+                <li class="cta"><a href="buy-tickets.php">achat tiquets</a></li>
               </ul>
             </nav>
           </div>

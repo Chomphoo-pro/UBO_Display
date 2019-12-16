@@ -67,8 +67,14 @@
                   <li><a href="../index.php">Home</a></li>
                   <li><a href="affichageCategorie.php?indice=0">Catégorie</a></li>
                   <li><a href="inscription.php">Inscription</a></li>
-                  <li><a href="deconnection.php">Deconnection</a></li>
-                  <li class="cta"><a href="../buy-tickets.html">achat tiquets</a></li>
+                  <?php
+                  if (isset($_SESSION['login'])) {
+                    echo "<li><a href='deconnection.php'>Déconnection</a></li>";
+                  } else {
+                    echo "<li><a href='session.php'>Connection</a></li>";
+                  }
+                  ?>
+                  <li class="cta"><a href="../buy-tickets.PHP">achat tiquets</a></li>
                 </ul>
               </nav>
             </div>

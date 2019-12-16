@@ -2,7 +2,8 @@
 <html>
 
 <head>
-	<title></title>
+	<title>Connection</title>
+	<?php session_start(); ?>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -26,8 +27,7 @@
 					<div id="contenu">
 
 						<?php
-						//Ouverture d'une session
-						session_start();
+
 
 						//Affectation dans des variables du pseudo/mot de passe s'ils existent,
 
