@@ -2,11 +2,32 @@
 <html lang="en">
 
 <head>
-  <title>Festival des bouées</title>
-  <?php session_start(); ?>
+  <title>Redacteur accueil</title>
+  <!-- Verifier que la session est redacteur -->
+  <?php
+
+  session_start();
+
+  if (
+    !isset($_SESSION['statut']) ||
+    !isset($_SESSION['login'])
+  ) {
+    //Redirection
+    header("Location:session.php");
+  }
+
+  if (strcmp($_SESSION['statut'], 'R') != 0) {
+    //Redirection
+    header("Location:session.php");
+  }
+
+
+
+
+  ?>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
   <link rel="stylesheet" href="../fonts/icomoon/style.css">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -17,8 +38,8 @@
   <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
   <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
   <link rel="stylesheet" href="../css/aos.css">
-
   <link rel="stylesheet" href="../css/style.css">
+
 </head>
 
 <body>
@@ -43,10 +64,12 @@
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                <li><a href="../index.php">Home</a></li>
-                <li><a href="../index.php">Home</a></li>
-                <li><a href="affichageCategorie.php">Catégorie</a></li>
-                <li><a href="inscription.php">Inscription</a></li>
+                <li><a href="redacteur_accueil.php">Accueil & mon profil</a></li>
+                <li><a href="404.php">Gestion des actualités</a></li>
+                <li><a href="404.php">Gestion des catégories</a></li>
+                <li><a href="404.php">Gestion des visuels</a></li>
+                <li><a href="404.php">Gestion des url</a></li>
+                <li><a href="redacteur_cat_info.php">Gestion des informations</a></li>
                 <?php
                 if (isset($_SESSION['login'])) {
                   echo "<li><a href='deconnection.php'>Déconnection</a></li>";
@@ -67,63 +90,115 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-10">
-            <span class="d-block mb-3 caption" data-aos="fade-up">Inscription</span>
-            <h1 class="d-block mb-4" data-aos="fade-up" data-aos-delay="100">Profil</h1>
+            <?php
+            $mysqli = new mysqli('localhost', 'zle_beuch', 'w3hsyumy', 'zfl2-zle_beuch');
+
+            if ($mysqli->connect_errno) {
+              // Affichage d'un message d'erreur
+              echo "<font size='3' color='red'> Error: Problème de connexion au serveur distant ... <br></font>";
+
+              // Arrêt du chargement de la page
+              //exit() fait bugais la page
+              exit();
+            }
+
+            // Instructions PHP à ajouter pour l'encodage utf8 du jeu de caractères
+            if (!$mysqli->set_charset("utf8")) {
+              printf("<font size='3' color='red'>Erreur: lors du chargement du jeu de caractères utf8 : %s<br></font>", $mysqli->error);
+              //exit() fait bugais la page
+              exit();
+            } /*else {
+              printf("Jeu de caractères courant : %s\n", $mysqli->character_set_name());
+            }
+            */
+
+
+            //echo ("Connexion BDD réussie !</br>");
+
+
+            ?>
+            <span class="d-block mb-3 caption" data-aos="fade-up">gestion des informations</span>
           </div>
         </div>
       </div>
     </div>
-
-
-
 
     <div class="site-section">
       <div class="container">
-        <div class="row">
-          <div class="col-md-6" data-aos="fade-up">
-            <form action="redacteur_cat_info_action.php" method="post">
-              <div class="form-group">
+        <div class="row mb-5">
+ 
+          <div class="row" data-aos="fade-up" data-aos-delay="400">
 
-                <div class="input-group mb-3">
+            <div>categorie1</div>
+            <h2 class="col"><a href="#">Design your open source strategy</a></h2>
 
-                  <input name="cat_num" type="text" class="form-control" placeholder="numero de la catégorie" aria-describedby="basic-addon1">
-
-                </div>
-
-
-                <div class="input-group mb-3">
-                  <textarea class="form-control" name="info_text" placeholder="information"></textarea>
-                </div>
-
-
-                <p><input class="btn btn-primary" type="submit" value="Ajouter"></p>
-              </div>
-            </form>
+            <p class="col">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus error deleniti dolores necessitatibus eligendi. Nesciunt repellendus ab voluptatibus.
+            </p><span class="col"><a href="#">By Emely Peters</a></span>
           </div>
+
+
+        </div>
+        <h1>Ajouter une information</h1>
+        <div class="row">
+          <form action="" method="post">
+            <div class="form-group">
+
+              <textarea class="mb-2 form-control" placeholder="information" name="" id="" cols="30" rows="10"></textarea>
+
+              CATEGORIE:
+              <select class="mb-2 form-control" name="" id="">
+
+                <?php
+                $sql = "SELECT * FROM categorie WHERE CAT_STATUT_AUTORISE = '" . $_SESSION['statut'] . "'";
+                //echo($sql);
+
+                $resultat = $mysqli->query($sql);
+
+                if ($resultat == false) //Erreur lors de l’exécution de la requête
+                {
+                  // La requête a echoué
+                  echo '<option value="">ERREUR CAT</option>';
+                  /*
+                  echo "Error: La requête a échoué  \n";
+                  echo "Query: " . $sql . "\n";
+                  echo "Errno: " . $mysqli->errno . "\n";
+                  echo "Error: " . $mysqli->error . "\n";
+                  */
+
+                  //exit() fait bugais la page
+                  exit();
+                } else { //Requête réussie
+                  //echo "<font size='3' color='green'> requête réussie ! <br></font>";
+                  while ($categorie = $resultat->fetch_assoc()) {
+                    echo '<option value="' . $categorie['CAT_NUMERO'] . '">' . $categorie['CAT_INTITULE'] . '</option>';
+                  }
+                }
+                ?>
+            </div>
+            </select>
+
+            <input class="btn btn-primary" type="submit" value="Valider">
+          </form>
         </div>
       </div>
     </div>
+  </div>
   </div>
 
 
 
 
   <footer class="site-footer">
-
-    <div class="row">
-
-      <div class="col-md-12 text-center">
-        <div class="border-top pt-5">
-          <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy; <script>
-              document.write(new Date().getFullYear());
-            </script> All rights reserved | This template is made with <i class="icon-heart text-primary" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-          </p>
-        </div>
-      </div>
+    <div class="col-md-12 text-center">
+      <p>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        Copyright &copy; <script>
+          document.write(new Date().getFullYear());
+        </script> All rights reserved | This template is made with <i class="icon-heart text-primary" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+      </p>
     </div>
+
   </footer>
 
   <script src="../js/jquery-3.3.1.min.js"></script>

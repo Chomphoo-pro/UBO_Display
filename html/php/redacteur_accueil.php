@@ -69,7 +69,7 @@
                   <li><a href="404.php">Gestion des catégories</a></li>
                   <li><a href="404.php">Gestion des visuels</a></li>
                   <li><a href="404.php">Gestion des url</a></li>
-                  <li><a href="404.php">Gestion des informations</a></li>
+                  <li><a href="redacteur_cat_info.php">Gestion des informations</a></li>
                   <?php
                   if (isset($_SESSION['login'])) {
                     echo "<li><a href='deconnection.php'>Déconnection</a></li>";
