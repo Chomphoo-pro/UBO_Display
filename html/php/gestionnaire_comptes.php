@@ -221,8 +221,8 @@
                 <input placeholder="entrez le pseudo" name="pseudo" type="text" class="mb-2 form-control">
 
                 <select name="validite" class="form-control btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <option value="A">A</option>
-                  <option value="D">D</option>
+                  <option value="A">Activer</option>
+                  <option value="D">Désactiver</option>
                 </select>
 
               </fieldset>

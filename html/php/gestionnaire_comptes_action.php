@@ -145,14 +145,14 @@
                 // La requête a echoué
                 echo "<font size='3' color='red'> Error: Le profil n'existe pas <br></font>";
                 /*
-    echo "Error: La requête a échoué  \n";
-    echo "Query: " . $sql . "\n";
-    echo "Errno: " . $mysqli->errno . "\n";
-    echo "Error: " . $mysqli->error . "\n";
-    */
+                echo "Error: La requête a échoué  \n";
+                echo "Query: " . $sql . "\n";
+                echo "Errno: " . $mysqli->errno . "\n";
+                echo "Error: " . $mysqli->error . "\n";
+                */
 
                 //exit() fait bugais la page
-                /*exit();*/
+                exit();
             } else { //Requête réussie
                 //echo "<font size='3' color='green'> requête réussie ! <br></font>";
                 $sql2 = "UPDATE profil SET PROF_VALIDITE = '" . $validite . "' WHERE CMPT_PSEUDO = '" . $pseudo . "'";
@@ -166,14 +166,14 @@
                     // La requête a echoué
                     echo "<font size='3' color='red'> Error: modification echoué <br></font>";
                     /*
-        echo "Error: La requête a échoué  \n";
-        echo "Query: " . $sql . "\n";
-        echo "Errno: " . $mysqli->errno . "\n";
-        echo "Error: " . $mysqli->error . "\n";
-        */
+                    echo "Error: La requête a échoué  \n";
+                    echo "Query: " . $sql . "\n";
+                    echo "Errno: " . $mysqli->errno . "\n";
+                    echo "Error: " . $mysqli->error . "\n";
+                    */
 
                     //exit() fait bugais la page
-                    /*exit();*/
+                    exit();
                 } else { //Requête réussie
                     //echo "<font size='3' color='green'> requête réussie ! <br></font>";
                     echo "<font size='3' color='green'> modification réussie ! <br></font>";
