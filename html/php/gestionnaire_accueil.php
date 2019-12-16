@@ -2,8 +2,8 @@
 <html lang="en">
 
   <head>
-    <title>Redacteur accueil</title>
-    <!-- Verifier que la session est redacteur -->
+    <title>Gestionnaire accueil</title>
+    <!-- Verifier que la session est gestionnaire -->
     <?php
 
     session_start();
@@ -65,8 +65,7 @@
               <nav class="site-navigation position-relative text-right" role="navigation">
                 <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
                   <li><a href="../index.php">Home</a></li>
-                  <li><a href="affichageCategorie.php?indice=0">Catégorie</a></li>
-                  <li><a href="inscription.php">Inscription</a></li>
+                  <li><a href="gestionnaire_comptes.php">Gestion comptes</a></li>
                   <?php
                   if (isset($_SESSION['login'])) {
                     echo "<li><a href='deconnection.php'>Déconnection</a></li>";

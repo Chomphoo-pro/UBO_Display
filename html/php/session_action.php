@@ -93,7 +93,7 @@
 						$resultat = $mysqli->query($sql);
 
 						if ($resultat == false) {
-							echo "<font size='3' color='red'> Error: requête echoué <br></font>";
+							echo "<font size='3' color='red'> Error: connection ... <br></font>";
 							/*
 							echo "Error: La requête a échoué  \n";
 							echo "Query: " . $sql . "\n";

@@ -43,10 +43,21 @@
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="php/affichageCategorie.php">Catégorie</a></li>
-                <li><a href="php/inscription.php">Inscription</a></li>
+
                 <?php
+                if (isset($_SESSION['statut'])) {
+                  if (strcmp($_SESSION['statut'], 'R') == 0) { //Redacteur
+
+                  }
+                  if (strcmp($_SESSION['statut'], 'G') == 0) { //Gestionnaire
+                    echo '<li><a href="index.php">Home</a></li>
+                          <li><a href="php/gestionnaire_comptes.php">Gestion comptes</a></li>';
+                  }
+                } else {
+                  echo '<li><a href="index.php">Home</a></li>
+                        <li><a href="php/affichageCategorie.php">Catégorie</a></li>
+                        <li><a href="php/inscription.php">Inscription</a></li>';
+                }
                 if (isset($_SESSION['login'])) {
                   echo "<li><a href='php/deconnection.php'>Déconnection</a></li>";
                 } else {

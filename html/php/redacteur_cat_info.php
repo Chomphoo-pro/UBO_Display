@@ -45,7 +45,7 @@
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
                 <li><a href="../index.php">Home</a></li>
                 <li><a href="../index.php">Home</a></li>
-                <li><a href="affichageCategorie.php?indice=0">Catégorie</a></li>
+                <li><a href="affichageCategorie.php">Catégorie</a></li>
                 <li><a href="inscription.php">Inscription</a></li>
                 <?php
                 if (isset($_SESSION['login'])) {

@@ -61,7 +61,7 @@
 
 								<div class="input-group mb-3 text-center">
 
-									<input name="pseudo" type="text" class="form-control" placeholder="saisire votre pseudo" aria-describedby="basic-addon1">
+									<input required="required" name="pseudo" type="text" class="form-control" placeholder="saisire votre pseudo" aria-describedby="basic-addon1">
 
 								</div>
 
@@ -69,7 +69,7 @@
 
 								<div class="input-group mb-3 text-center">
 
-									<input name="mdp" type="password" class="form-control" placeholder="saisire votre mot de passe" aria-describedby="basic-addon1">
+									<input required="required" name="mdp" type="password" class="form-control" placeholder="saisire votre mot de passe" aria-describedby="basic-addon1">
 
 								</div>
 
