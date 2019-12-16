@@ -64,8 +64,12 @@
             <div class="col-12 col-md-10 d-none d-xl-block">
               <nav class="site-navigation position-relative text-right" role="navigation">
                 <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                  <li><a href="../index.php">Home</a></li>
-                  <li><a href="gestionnaire_comptes.php">Gestion comptes</a></li>
+                  <li><a href="gestionnaire_accueil.php">Accueil & mon profil</a></li>
+                  <li><a href="gestionnaire_comptes.php">Comptes</a></li>
+                  <li><a href="404.php">Actualités</a></li>
+                  <li><a href="404.php">Catégories / informations</a></li>
+                  <li><a href="404.php">URL</a></li>
+
                   <?php
                   if (isset($_SESSION['login'])) {
                     echo "<li><a href='deconnection.php'>Déconnection</a></li>";
@@ -87,7 +91,7 @@
           <div class="row align-items-center">
             <div class="col-md-10">
               <span class="d-block mb-3 caption" data-aos="fade-up">Acceuil</span>
-              <h1 class="d-block mb-4" data-aos="fade-up" data-aos-delay="100">Bienvenue géstionnaire</h1>
+              <h1 class="d-block mb-4" data-aos="fade-up" data-aos-delay="100">Bienvenue gestionnaire</h1>
             </div>
           </div>
         </div>

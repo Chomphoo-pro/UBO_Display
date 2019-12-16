@@ -102,8 +102,9 @@
         <div class="container">
             <?php
             //Verifie si le pseudo existe
-            $pseudo = $_POST['pseudo'];
-            $validite = $_POST['validite'];
+            //addslashes(htmlspecialchars($_POST['pseudo']));
+            $pseudo = addslashes(htmlspecialchars($_POST['pseudo']));
+            $validite = addslashes(htmlspecialchars($_POST['validite']));
 
             //echo "$pseudo - $validite";
 

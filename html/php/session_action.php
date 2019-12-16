@@ -30,11 +30,11 @@
 
 
 						//Affectation dans des variables du pseudo/mot de passe s'ils existent,
+						$id = addslashes(htmlspecialchars($_POST["pseudo"]));
+						$mdp = addslashes(htmlspecialchars($_POST["mdp"]));
 
+						if ($id && $mdp) {
 
-						if ($_POST["pseudo"] && $_POST["mdp"]) {
-							$id = $_POST["pseudo"];
-							$motdepasse = $_POST["mdp"];
 
 							// Connexion à la base MariaDB
 							$mysqli = new mysqli('localhost', 'zle_beuch', 'w3hsyumy', 'zfl2-zle_beuch');
@@ -82,7 +82,7 @@
 						$sql = "select prof_statut 
 										from compte join profil using(`CMPT_PSEUDO`)
 										where cmpt_pseudo = '" . $id . "'" . "
-										and cmpt_mot_de_passe = MD5('" . $motdepasse . "')
+										and cmpt_mot_de_passe = MD5('" . $mdp . "')
 										and prof_validite = 'A';";
 
 

@@ -64,9 +64,12 @@
             <div class="col-12 col-md-10 d-none d-xl-block">
               <nav class="site-navigation position-relative text-right" role="navigation">
                 <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                  <li><a href="../index.php">Home</a></li>
-                  <li><a href="">Actualités</a></li>
-                  <li><a href="">Information</a></li>
+                  <li><a href="redacteur_accueil.php">Accueil & mon profil</a></li>
+                  <li><a href="404.php">Gestion des actualités</a></li>
+                  <li><a href="404.php">Gestion des catégories</a></li>
+                  <li><a href="404.php">Gestion des visuels</a></li>
+                  <li><a href="404.php">Gestion des url</a></li>
+                  <li><a href="404.php">Gestion des informations</a></li>
                   <?php
                   if (isset($_SESSION['login'])) {
                     echo "<li><a href='deconnection.php'>Déconnection</a></li>";
