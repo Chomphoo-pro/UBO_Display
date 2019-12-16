@@ -46,14 +46,14 @@
                 <li><a href="../index.php">Home</a></li>
                 <li><a href="affichageCategorie.php">Catégorie</a></li>
                 <li><a href="inscription.php">Inscription</a></li>
-                <?php 
+                <?php
 
-                    if (isset($_SESSION['login'])) {
-                      echo "<li><a href='deconnection.php'>Déconnection</a></li>";
-                    } else {
-                      echo "<li><a href='session.php'>Connection</a></li>";
-                    } 
-						    ?>
+                if (isset($_SESSION['login'])) {
+                  echo "<li><a href='deconnection.php'>Déconnection</a></li>";
+                } else {
+                  echo "<li><a href='session.php'>Connection</a></li>";
+                }
+                ?>
                 <li class="cta"><a href="buy-tickets.php">achat tiquets</a></li>
               </ul>
             </nav>
@@ -182,26 +182,26 @@
         </div>
 
 
-  
+
       </div>
     </div>
-
-
-
-    <footer class="site-footer">
-      <div class="col-md-12 text-center">
-        <p>
-          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-          Copyright &copy; <script>
-            document.write(new Date().getFullYear());
-          </script> All rights reserved | This template is made with <i class="icon-heart text-primary" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        </p>
-      </div>
-
-    </footer>
-
   </div>
+
+
+
+  <footer class="site-footer">
+    <div class="col-md-12 text-center">
+      <p>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        Copyright &copy; <script>
+          document.write(new Date().getFullYear());
+        </script> All rights reserved | This template is made with <i class="icon-heart text-primary" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+      </p>
+    </div>
+
+  </footer>
+
 
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>

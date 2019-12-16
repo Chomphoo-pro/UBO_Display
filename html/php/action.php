@@ -59,7 +59,6 @@
           </div>
           <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="../#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
         </div>
-      </div>
     </header>
 
     <div class="site-section site-hero inner">
@@ -227,23 +226,23 @@
         </div>
       </div>
     </div>
-
-
-
-    <footer class="site-footer">
-      <div class="col-md-12 text-center">
-        <p>
-          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-          Copyright &copy; <script>
-            document.write(new Date().getFullYear());
-          </script> All rights reserved | This template is made with <i class="icon-heart text-primary" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        </p>
-      </div>
-
-    </footer>
-
   </div>
+
+
+  <footer class="site-footer">
+    <div class="col-md-12 text-center">
+      <p>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        Copyright &copy; <script>
+          document.write(new Date().getFullYear());
+        </script> All rights reserved | This template is made with <i class="icon-heart text-primary" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+      </p>
+    </div>
+
+  </footer>
+
+
 
   <script src="../js/jquery-3.3.1.min.js"></script>
   <script src="../js/jquery-migrate-3.0.1.min.js"></script>
