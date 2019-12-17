@@ -155,6 +155,7 @@
 
               //Verifier s'il y'a des infos
               if ($numRows > 0) { // Afficher tout
+                echo '<div class="container">';
                 while ($information = $resultat->fetch_assoc()) {
                   echo '<div class="row mb-5" data-aos="fade-up" data-aos-delay="400">';
                   echo '
@@ -163,6 +164,7 @@
                     <span class="col"><a href="#">'.$information['CMPT_PSEUDO'].'</a></span>';
                     echo '</div>';
                 }
+                echo "</div>";
               } else { //Afficher indisponible
                 echo "<font size='3' color='red'> Aucune informations disponibles ...<br></font>";
               }
@@ -174,16 +176,18 @@
         </div>
         <h1>Ajouter une information</h1>
         <div class="row">
-          <form action="" method="post">
+          <form action="redacteur_cat_info_action.php" method="post">
             <div class="form-group">
 
-              <textarea class="mb-2 form-control" placeholder="information" name="" id="" cols="30" rows="10"></textarea>
+              <textarea class="mb-2 form-control" placeholder="information" name="information" id="" cols="30" rows="10"></textarea>
 
               CATEGORIE:
-              <select class="mb-2 form-control" name="" id="">
+              <select class="mb-2 form-control" name="categorie" id="">
 
                 <?php
-                $sql = "SELECT * FROM categorie WHERE CAT_STATUT_AUTORISE = '" . $_SESSION['statut'] . "'";
+                
+                //$sql = "SELECT * FROM categorie WHERE CAT_STATUT_AUTORISE = '" . $_SESSION['statut'] . "'";
+                $sql = "SELECT * FROM categorie";
                 //echo($sql);
 
                 $resultat = $mysqli->query($sql);
