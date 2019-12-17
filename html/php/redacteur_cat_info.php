@@ -132,7 +132,8 @@
             $sql = "SELECT * 
             FROM categorie
             LEFT OUTER JOIN information using(CAT_NUMERO)
-            where INFO_ETAT = 'L'";
+            where INFO_ETAT = 'L'
+            ORDER BY INFO_NUMERO DESC";
 
             //echo($sql);
 
@@ -179,7 +180,7 @@
           <form action="redacteur_cat_info_action.php" method="post">
             <div class="form-group">
 
-              <textarea class="mb-2 form-control" placeholder="information" name="information" id="" cols="30" rows="10"></textarea>
+              <textarea required="required" class="mb-2 form-control" placeholder="information" name="information" id="" cols="30" rows="10"></textarea>
 
               CATEGORIE:
               <select class="mb-2 form-control" name="categorie" id="">

@@ -66,7 +66,7 @@
                 <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
                   <li><a href="gestionnaire_accueil.php">Accueil & mon profil</a></li>
                   <li><a href="gestionnaire_comptes.php">Comptes</a></li>
-                  <li><a href="404.php">Actualités</a></li>
+                  <li><a href="gestionnaire_actualites.php">Actualités</a></li>
                   <li><a href="404.php">Catégories / informations</a></li>
                   <li><a href="404.php">URL</a></li>
 
