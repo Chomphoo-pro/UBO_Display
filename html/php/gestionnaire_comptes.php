@@ -130,7 +130,7 @@
         <form action="gestionnaire_comptes_action.php" method="post">
           <div class="form-group">
             <div class="row my-5">
-              <table>
+              <table class="col">
 
 
 
@@ -227,7 +227,7 @@
 
               </fieldset>
 
-              <input class="btn btn-primary" type="submit" value="Valider">
+              <input class="btn btn-primary" type="submit" value="Valider" data-aos="fade-up">
 
 
 
