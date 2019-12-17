@@ -4,7 +4,11 @@
 <head>
 
 	<title>Connection</title>
-	<?php session_start(); ?>
+	<?php session_start();
+	unset($_SESSION['statut']);
+    unset($_SESSION['login']);
+
+     ?>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">

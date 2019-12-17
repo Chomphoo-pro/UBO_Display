@@ -77,7 +77,7 @@
                   echo "<li><a href='session.php'>Connection</a></li>";
                 }
                 ?>
-                <li class="cta"><a href="../buy-tickets.PHP">achat tiquets</a></li>
+
               </ul>
             </nav>
           </div>
